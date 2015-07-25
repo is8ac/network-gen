@@ -1,10 +1,10 @@
 # Network Graph Generator
-## An R script to generate network graphs of relationships.
+## An R script to generate network graphs of relationships
 
 network-graph-gen.R reads two csv files, an edge list and a vertex list,
 and uses [igraph](http://igraph.org/) to generate a network graph
 showing the relations in the edge list between the vertices in the vertex list.
-Edges and vertices's are color coded according to the `relation` and
+Edges and vertices are color coded according to the `relation` and
 `vertexType` columns respectively.
 Legends are created for both edges and vertices showing the colors
 that were assigned to then.
@@ -21,8 +21,8 @@ vertices <- read.csv("vertexList.csv")
 can be edited to names of your data files.
 
 ### Directional
-By default, igraphs `directed=TRUE`.
-This means that edges are considered to show one way relationships.
+By default, igraphs sets `directed=TRUE`.
+This means that edges are considered to show one-way relationships.
 If you wish to show bidirectional relationships, set `directed=FALSE`
 
 # Examples
