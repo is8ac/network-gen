@@ -26,5 +26,8 @@ This means that edges are considered to show one-way relationships.
 If you wish to show bidirectional relationships, set `directed=FALSE`
 
 # Examples
-Using the included example data.
-![Alice and Bob - key exchange](network-graph.png)
+Directed graph using the included example data.
+![Alice and Bob - key exchange](examples/alice-bob.png)
+
+Bidirectinal example using Fate/Zero characters.
+![Fate/Zero character relationships](examples/fate-zero-characters-relations.png)
