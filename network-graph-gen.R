@@ -21,7 +21,7 @@ edges$color <- assignColor(edges$relation)
 vertices$color <- assignColor(vertices$vertexType)
 
 # Create the edge list.
-edgeList <- graph.data.frame(edges,directed=FALSE,vertices=vertices)
+edgeList <- graph.data.frame(edges,vertices=vertices)
 
 # Open the graphics device.
 png(filename = "network-graph.png", width = 1920, height = 1080, bg="black")
