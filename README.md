@@ -1,10 +1,11 @@
 # Network Graph Generator
 ## An R script to generate network graphs of relationships.
 
-network-graph-gen.R reads two csv files, and edge list and a vertex list,
-and uses the [igraph](http://igraph.org/) package to generate a network graph showing the relations in the edge list
-between the vertices's in the vertex list.
-Edges and vertices's are color coded according to the the `relation` or `vertexType` columns respectively.
+network-graph-gen.R reads two csv files, an edge list and a vertex list,
+and uses [igraph](http://igraph.org/) to generate a network graph
+showing the relations in the edge list between the vertices's in the vertex list.
+Edges and vertices's are color coded according to the `relation` and
+`vertexType` columns respectively.
 Legends are created for both edges and vertices's showing the colors that were assigned to then.
 
 ## Usage
