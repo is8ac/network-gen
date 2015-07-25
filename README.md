@@ -23,3 +23,7 @@ can be edited to names of your data files.
 By default, igraphs directed=TRUE.
 This means that edges are considered to show one way relationships.
 If you wish to show bidirectional relationships, set `directed=FALSE`
+
+# Examples
+Using the included example data.
+![Alice and Bob](network-graph.png)
