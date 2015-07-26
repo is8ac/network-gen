@@ -3,8 +3,9 @@ require(igraph)
 # Function to assign unique colors to the elements in a list.
 assignColor <- function(data,
     typeList=unique(data),
-    colorList=rainbow(length(unique(data)))){
-  colorData <- data
+    colorList=rainbow(length(unique(data))),
+    defaultColor="black"){
+  colorData <- defaultColor
   colorData <- "black"
   for(type in typeList){
     colorData[data == type] <- colorList[typeList == type]
@@ -29,7 +30,8 @@ png(filename = "network-graph.png", width = 1920, height = 1080, bg="black")
   plot.igraph(edgeList,
     vertex.label.color="white",
     vertex.label.cex=1.5,
-    vertex.size=6)
+    vertex.size=6,
+    edge.width=2)
   # Make an edge color legend.
   legend(x="bottomright",
          legend = unique(edges$relation),

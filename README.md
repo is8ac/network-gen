@@ -2,13 +2,14 @@
 ## An R script to generate network graphs of relationships
 
 network-graph-gen.R reads two csv files, an edge list and a vertex list,
-and uses [igraph](http://igraph.org/) to generate a network graph
-showing the relations in the edge list between the vertices in the vertex list.
+and uses [igraph](http://igraph.org/) to generate a
+[network graph](https://en.wikipedia.org/wiki/Graph_theory) showing
+the relations in the edge list between the vertices in the vertex list.
 Edges and vertices are automatically color coded according to the
 `relation` and `vertexType` columns of
 `edgeList.csv` and `vertexList.csv` respectively.
 Legends are created for both edges and vertices showing the colors
-that were assigned to then.
+that were automatically assigned.
 
 ## Usage
 ### Input data
@@ -35,7 +36,7 @@ Error in graph.data.frame(edges, vertices = vertices, directed = TRUE) :
   Some vertex names in edge list are not listed in vertex data frame
 ```
 It will not however complain if there are vertices that have no edges.
-They will merely be displayed as unconnected vertices floating be themselves.
+These will merely be displayed as unconnected vertices floating be themselves.
 
 Alternatively, you can do away with the vertex list completely,
 and have igraph infer the vertices purely from the edge list.
@@ -48,9 +49,43 @@ to
 edgeList <- graph.data.frame(edges,directed=TRUE)
 ```
 
+## Using the assignColor() function
+AssignColor() accepts a list of values, and returns a list of the same length
+containing colors.
+
+| Input   | Output  |
+| ------- |---------|
+| "foo"   | "red"   |
+| "foo"   | "red"   |
+| "bar"   | "green" |
+| "baz"   | "blue"  |
+| "bar"   | "green" |
+
+It also optionally accepts typeList, colorList, and defaultColor.
+By default, typeList is uniquified input data, and colorList is a rainbow of the length of typeList.
+However one can manually set these, by supplying a list of values
+for typeList, and a list of colors for colorList.
+
+### Considerations
+unique() orders the output list in the order in which they first appered
+in the input data.
+This means that the first unique value is assigned the first color,
+the second unique value is assigned the second color, etc.
+
+In the Fate/Zero example below, the first instances of the friend edge type
+was the first unique edge type to appear after the first instance
+of the enemy edge type.
+This means that they are assigned slightly different shades of green,
+making them difficult to distinguish.
+This can be fixed however by rearranging the first instance of the types,
+and so, reassigning there colors to something more distinguishable.
+
 # Examples
 Directed graph using the included example data.
 ![Alice and Bob - key exchange](examples/alice-bob.png)
 
-Bidirectinal example using characters from Fate/Zero.
+Undirected graph of Fate/Zero characters.
 ![Fate/Zero character relationships](examples/fate-zero-characters-relations.png)
+
+Undirected graph, with nodes inferred from edge list, showing Ethernet traffic captured by Wireshark. Edges are color coded acording to traffic type.
+![Wireshark Ethernet traffic](examples/wireshark-ethernet-traffic.png)
