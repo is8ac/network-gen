@@ -36,8 +36,8 @@ png(filename = "network-graph.png", width = 1920, height = 1080, bg="black")
          col=rainbow(length(unique(edges$relation))),
          lty=1,
          bg="white")
-    # Make a vertex color legend.
-    legend(x="bottomleft",
+  # Make a vertex color legend.
+  legend(x="bottomleft",
           legend = unique(vertices$vertexType),
           col=rainbow(length(unique(vertices$vertexType))),
           lty=1,
