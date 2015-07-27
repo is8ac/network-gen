@@ -51,23 +51,24 @@ edgeList <- graph.data.frame(edges,directed=TRUE)
 
 ## Using the assignColor() function
 AssignColor() accepts a list of values, and returns a list of the same length
-containing colors.
+containing the corresponding colors.
 
-| Input   | Output  |
-| ------- |---------|
-| "foo"   | "red"   |
-| "foo"   | "red"   |
-| "bar"   | "green" |
-| "baz"   | "blue"  |
-| "bar"   | "green" |
+| Input  | Output  |
+| ------ | ------- |
+| "foo"  | "red"   |
+| "foo"  | "red"   |
+| "bar"  | "green" |
+| "baz"  | "blue"  |
+| "bar"  | "green" |
 
 It also optionally accepts typeList, colorList, and defaultColor.
-By default, typeList is uniquified input data, and colorList is a rainbow of the length of typeList.
+By default, typeList is uniquified input data, and colorList is a rainbow
+of the length of uniquified input data.
 However one can manually set these, by supplying a list of values
 for typeList, and a list of colors for colorList.
 
 ### Considerations
-unique() orders the output list in the order in which they first appered
+unique() orders the output list in the order in which they first appeared
 in the input data.
 This means that the first unique value is assigned the first color,
 the second unique value is assigned the second color, etc.
@@ -75,10 +76,10 @@ the second unique value is assigned the second color, etc.
 In the Fate/Zero example below, the first instances of the friend edge type
 was the first unique edge type to appear after the first instance
 of the enemy edge type.
-This means that they are assigned slightly different shades of green,
+Consequently, they were assigned adjacent shades of green,
 making them difficult to distinguish.
-This can be fixed however by rearranging the first instance of the types,
-and so, reassigning there colors to something more distinguishable.
+This can be fixed however by rearranging the first instance of the types, and so,
+reassigning the colors assigned to them, to something more distinguishable.
 
 # Examples
 Directed graph using the included example data.
@@ -87,5 +88,7 @@ Directed graph using the included example data.
 Undirected graph of Fate/Zero characters.
 ![Fate/Zero character relationships](examples/fate-zero-characters-relations.png)
 
-Undirected graph, with nodes inferred from edge list, showing Ethernet traffic captured by Wireshark. Edges are color coded acording to traffic type.
+Undirected graph, with nodes inferred from the edge list, showing Ethernet
+traffic captured by Wireshark.
+Edges are color coded acording to traffic type.
 ![Wireshark Ethernet traffic](examples/wireshark-ethernet-traffic.png)
